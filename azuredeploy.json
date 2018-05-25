@@ -53,7 +53,7 @@
         "nySqlName": "[concat(variables('cleanAppName'), 'mysql')]",
         "rdpName": "[concat(variables('cleanAppName'), 'rdp')]",
         "databricksPricing": "premium",
-        "databricksName": "[concat(variables('cleanAppName'), 'databricks')]",
+        "databricksName": "[concat(variables('cleanAppName'), 'databricks')]"
     },
     "resources": [
         {
