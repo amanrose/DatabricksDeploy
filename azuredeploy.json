@@ -23,7 +23,7 @@
             "metadata": {
               "description": "The default deployment location for the resources needed for the workshop. Note that this does NOT have to be the same as the location chosen for the Resource Group."
             }
-        },
+        }
     },
     "variables": {
         "cleanAppName": "[replace(replace(replace(toLower(parameters('appName')), '-', ''), '_', ''), '.', '')]",
@@ -595,5 +595,5 @@
                 "ManagedResourceGroupId": "[variables('databricksName')]"
         }
       }
-    ],
+    ]
 }
