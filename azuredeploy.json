@@ -7,7 +7,7 @@
             "minLength": 3,
             "maxLength": 10,
             "metadata": {
-              "description": "This should be a short (10 or fewer characters) unique string that will be a prefix to all of the resources deployed. DO NOT INCLUDE ANY EXTRANEOUS CHARACTERS SUCH AS DASHES, UNDERSCORES, ETC."
+              "description":"This should be a short (10 or fewer characters) unique string that will be a prefix to all of the resources deployed. DO NOT INCLUDE ANY EXTRANEOUS CHARACTERS SUCH AS DASHES, UNDERSCORES, ETC."
             }
         },
         "deploymentLocation": {
@@ -21,7 +21,7 @@
               "westus"
             ],
             "metadata": {
-              "description": "The default deployment location for the resources needed for the workshop. Note that this does NOT have to be the same as the location chosen for the Resource Group."
+              "description":"The default deployment location for the resources needed for the workshop. Note that this does NOT have to be the same as the location chosen for the Resource Group."
             }
         }
     },
