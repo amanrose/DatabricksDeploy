@@ -18,10 +18,31 @@
               "centralus",
               "northcentralus",
               "southcentralus",
-              "westus"
+              "westus",
+              "westus2",
+              "westeurope",
+              "southeastasia",
+              "eastasia",
+              "northeurope"
             ],
             "metadata": {
               "description":"The default deployment location for the resources needed for the workshop. Note that this does NOT have to be the same as the location chosen for the Resource Group."
+            }
+        },
+        "vmUserName": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 10,
+            "metadata": {
+              "description":"This is the user name used to log into your Data Science VM."
+            }
+        },
+        "vmUserPassword": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 10,
+            "metadata": {
+              "description":"This is the password used to log into your Data Science VM."
             }
         }
     },
@@ -29,8 +50,6 @@
         "cleanAppName": "[replace(replace(replace(toLower(parameters('appName')), '-', ''), '_', ''), '.', '')]",
         "storageAccountName": "[concat(variables('cleanAppName'), 'vmstorage')]",
         "labVmName": "[concat(variables('cleanAppName'), 'labvm')]",
-        "labVmUsername": "databricks",
-        "labVmPassword": "Password.1!!",
         "virtualNetworkName": "[concat(variables('cleanAppName'), 'labnetwork')]",
         "nicName": "[concat(variables('cleanAppName'), 'nic')]",
         "subnetName": "[concat(variables('cleanAppName'), 'subnet')]",
@@ -96,8 +115,8 @@
                 },
                 "osProfile": {
                     "computerName": "[variables('labVmName')]",
-                    "adminUsername": "[variables('labVmUsername')]",
-                    "adminPassword": "[variables('labVmPassword')]",
+                    "adminUsername": "[parameters('vmUserName')]",
+                    "adminPassword": "[parameters('vmUserPassword')]",
                     "windowsConfiguration": {
                         "provisionVMAgent": true
                     }
