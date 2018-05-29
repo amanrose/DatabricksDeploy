@@ -28,7 +28,7 @@
     "variables": {
         "cleanAppName": "[replace(replace(replace(toLower(parameters('appName')), '-', ''), '_', ''), '.', '')]",
         "storageAccountName": "[concat(variables('cleanAppName'), 'vmstorage')]",
-        "labVmName": "[concat(variables('cleanAppName'), 'lab')]",
+        "labVmName": "[concat(variables('cleanAppName'), 'labvm')]",
         "labVmUsername": "databricks",
         "labVmPassword": "Password.1!!",
         "virtualNetworkName": "[concat(variables('cleanAppName'), 'labnetwork')]",
@@ -95,28 +95,12 @@
                 "hardwareProfile": {
                     "vmSize": "[variables('vmSize')]"
                 },
-                "storageProfile": {
-                    "imageReference": {
-                        "publisher": "[variables('imagePublisher')]",
-                        "offer": "[variables('imageOffer')]",
-                        "sku": "[variables('vmOsVersion')]",
-                        "version": "latest"
-                    },
-                    "osDisk": {
-                        "osType": "Windows",
-                        "name": "[variables('osDiskName')]",
-                        "createOption": "FromImage",
-                        "caching": "ReadWrite"
-                    },
-                    "dataDisks": []
-                },
                 "osProfile": {
                     "computerName": "[variables('labVmName')]",
                     "adminUsername": "[variables('labVmUsername')]",
                     "adminPassword": "[variables('labVmPassword')]",
                     "windowsConfiguration": {
-                        "provisionVMAgent": true,
-                        "enableAutomaticUpdates": true
+                        "provisionVMAgent": true
                     }
                 },
                 "networkProfile": {
