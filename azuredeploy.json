@@ -290,11 +290,11 @@
             "location": "[parameters('deploymentLocation')]",
             "apiVersion": "2018-04-01",
             "sku": {
-                "name": "[variables('databricksPricing')]",
+                "name": "[variables('databricksPricing')]"
+            },
             "properties": {
                 "ManagedResourceGroupId": "[concat(subscription().id, '/resourceGroups/', variables('databricksName'))]"
             }
-            }
-        }
-    ]
+        }       
+     ]
 }
