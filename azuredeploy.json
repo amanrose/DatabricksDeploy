@@ -39,8 +39,8 @@
         },
         "vmUserPassword": {
             "type": "string",
-            "minLength": 3,
-            "maxLength": 10,
+            "minLength": 10,
+            "maxLength": 25,
             "metadata": {
               "description":"This is the password used to log into your Data Science VM."
             }
