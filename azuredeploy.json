@@ -32,14 +32,13 @@
         "labVmUsername": "databricks",
         "labVmPassword": "Password.1!!",
         "virtualNetworkName": "[concat(variables('cleanAppName'), 'labnetwork')]",
-        "OSDiskName": "labvmosdisk",
         "nicName": "[concat(variables('cleanAppName'), 'nic')]",
         "subnetName": "[concat(variables('cleanAppName'), 'subnet')]",
         "publicIPAddressName": "[concat(variables('cleanAppName'), 'publicip')]",
-        "vmOsVersion": "2016-Datacenter",
+        "vmOsVersion": "windows2016",
         "vmSize": "Standard_DS2_v2",
-        "imagePublisher": "MicrosoftWindowsServer", 
-        "imageOffer": "WindowsServer", 
+        "imagePublisher": "microsoft-ads", 
+        "imageOffer": "windows-data-science-vm", 
         "databricksName": "[concat(variables('cleanAppName'), 'databricks')]",
         "databricksPricing": "premium"
     },
@@ -101,6 +100,14 @@
                     "adminPassword": "[variables('labVmPassword')]",
                     "windowsConfiguration": {
                         "provisionVMAgent": true
+                    }
+                },
+                "storageProfile": {
+                    "imageReference":{
+                        "publisher": "[variables('imagePublisher')]",
+                        "offer": "[variables('imageOffer')]",
+                        "sku": "[variables('vmOsVersion')]",
+                        "version": "latest"
                     }
                 },
                 "networkProfile": {
